@@ -26,4 +26,18 @@ The selected Mendeley dataset provides a real, anonymous F&B sales dataset with 
 ## Data-use and verification notes
 
 - Attribute the Mendeley dataset to its authors and retain the CC BY 4.0 licence information when using or adapting it.
+- ### Dataset verification
+
+The Anonymous Transactional Dataset published by Engel, Gaol, Kurniawan and Budiharto (2026) was selected as the primary source of real sales data for BeanTrack. The dataset describes historical transactions collected from a real food and beverage MSME operating three outlets in Indonesia.
+
+The downloaded dataset contains two CSV files:
+
+- `Transactions.csv`: 53,820 transaction records covering 2 January 2025 to 30 September 2025.
+- `Products.csv`: 96 product records containing product names, variants, categories, prices and descriptions.
+
+The files were inspected using Python. Both files contained no missing values or duplicate complete records. The transaction file contained 53,820 unique receipt numbers.
+
+**Research gap:** The dataset provides sales and product information but does not include ingredient stock levels, supplier records, purchase orders, recipes or wastage records. BeanTrack will address these additional operational requirements through its proposed database design and further authorized data collection or clearly labelled test records.
+
+**Data licence:** Creative Commons Attribution 4.0 International (CC BY 4.0). The dataset must be properly attributed to its authors.
 
