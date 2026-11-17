@@ -1,43 +1,53 @@
-# Research Log – Cafe Sales, Inventory and Supplier Management System
+# BeanTrack – Research Log
 
-**Student:** Kacyeye Igihozo Jane  
-**Student ID:** 20251SEN127  
-**Course:** INSY 8311 – Database Development with PL/SQL  
-**Project:** Cafe Sales, Inventory and Supplier Management System  
-**Research date:** 16 November 2026
+**Project Title:** BeanTrack: Smart Cafe Operations and Inventory Management System
+
+**Student Name:** Kacyeye Igihozo Jane
+
+**Student ID:** 20251SEN127
+
+**Course:** INSY 8311 – Database Development with PL/SQL
+
+## 1. Research Sources
 
 | # | Source (APA) | Type | Link | Key finding | Gap it shows |
 |---|---|---|---|---|---|
-| 1 | Engel, M. M., Gaol, F. L., Kurniawan, A., & Budiharto, W. (2026). *Anonymous Transactional Dataset* (Version 2) [Data set]. Mendeley Data. https://doi.org/10.17632/kcgf45y24m.2 | Real-world dataset | https://data.mendeley.com/datasets/kcgf45y24m/2 | Contains 53,820 anonymous sales transaction records and product metadata for 96 products from a real food-and-beverage MSME operating three outlets in Indonesia. The records cover January–September 2025. The dataset is licensed under CC BY 4.0. | It provides real sales and product data, but does not provide a complete set of ingredient stock movements, recipes, supplier records, purchase orders or waste records. The project will need additional permitted operational data or clearly labelled test records for those modules. |
-| 2 | Engel, M. M., Gaol, F. L., Kurniawan, A., & Budiharto, W. (2026). Anonymous transactional dataset in a local food and beverages (F&B) micro-small-medium enterprise (MSME) for recommender systems. *Data in Brief, 65*, 112519. https://doi.org/10.1016/j.dib.2026.112519 | Research paper / dataset description | https://doi.org/10.1016/j.dib.2026.112519 | Explains how real POS transactions from an F&B business were collected, cleaned and structured. It reports 53,820 transaction records, 96 product records and three outlets. It also explains that customer identifiers were not included. | The study focuses on anonymous transaction analysis and recommendation, rather than managing ingredient inventory, supplier purchasing, stock replenishment and food waste in one operational database. |
-| 3 | Ramadhan, A. N., & Simatupang, T. M. (2012). Determining inventory management policy for perishable materials in Roemah Keboen Restaurant. *Procedia - Social and Behavioral Sciences, 65*, 992–999. https://doi.org/10.1016/j.sbspro.2012.11.232 | Research paper | https://doi.org/10.1016/j.sbspro.2012.11.232 | The restaurant experienced waste because ordering quantities and timing were decided subjectively. The study compared periodic and continuous inventory review policies and found that continuous review produced a lower total cost in its case study. | The paper examines inventory policy in one restaurant; it does not provide a complete Oracle-based cafe system connecting sales, recipes, suppliers, purchase orders and stock updates. |
-| 4 | Salas Puente, M. F., Vera, C., & Campoverde, R. (2026). Inventory optimization and working capital efficiency in a small-scale restaurant: An applied ABC–JIT case study. *LACCEI, 1*(14). https://doi.org/10.18687/LACCEI2026.1.1.2600 | Research paper / case study | https://doi.org/10.18687/LACCEI2026.1.1.2600 | Presents an inventory-control approach for a small restaurant using ABC classification and Just-in-Time principles. It highlights how stockouts, unexpected purchases and poor storage can affect costs and working capital. | It focuses on inventory optimization methods rather than building an integrated transactional database with automated PL/SQL procedures, supplier records and a live dashboard. |
-| 5 | United Nations Environment Programme. (2024). *Food Waste Index Report 2024: Think eat save—Tracking progress to halve global food waste*. https://wedocs.unep.org/handle/20.500.11822/45230 | International report | https://wedocs.unep.org/handle/20.500.11822/45230 | Explains the importance of measuring food waste in food-service, retail and household sectors, and provides guidance for measuring and reducing waste. | The report provides broad evidence and measurement guidance, not a day-to-day cafe database for recording ingredient quantities, expiry, waste reasons and stock adjustments. |
-| 6 | Food and Agriculture Organization of the United Nations. (n.d.). *Food Loss and Waste Database*. Retrieved November 16, 2026, from https://www.fao.org/datalab/filling-data-gaps/food-loss-and-waste-database/ | Open data resource / research database | https://www.fao.org/datalab/filling-data-gaps/food-loss-and-waste-database/ | Provides an open-access collection of food-loss and food-waste evidence drawn from scientific publications, reports and country sources. It can help identify food types, stages of the supply chain and reported causes of waste. | It is a research evidence database, not a cafe's operational inventory ledger. It does not replace the need to record the project's own stock, purchasing and waste transactions. |
-| 7 | Square. (n.d.). *Manage ingredient inventory with Square Restaurant Inventory*. Square Support. Retrieved November 16, 2026, from https://api.squareup.com/help/us/en/article/8610-manage-ingredient-inventory-with-square-restaurant-inventory | Existing commercial system / technical product documentation | https://api.squareup.com/help/us/en/article/8610-manage-ingredient-inventory-with-square-restaurant-inventory | Describes real-time ingredient tracking, purchase orders, menu costing and analytics integrated with restaurant POS operations. Square Recipes can also connect menu items to ingredients and reduce ingredient stock when an item is sold. | It is a commercial platform with subscription and integration requirements. This project will build a smaller academic solution using Oracle Database and PL/SQL, with its own database structure and dashboard. |
-| 8 | Oracle Corporation. (2024). *Oracle Database PL/SQL Language Reference, 21c* (F31827-07). https://docs.oracle.com/en/database/oracle/oracle-database/21/lnpls/ | Official technical documentation | https://docs.oracle.com/en/database/oracle/oracle-database/21/lnpls/ | Documents PL/SQL programming features including procedures, functions, packages, triggers, cursors, exception handling, collections, `BULK COLLECT` and `FORALL`. Oracle explains that bulk SQL can reduce communication overhead between the PL/SQL and SQL engines. | The documentation explains how to use PL/SQL features, but it does not apply them to a cafe's specific sales, ingredient inventory, supplier and purchasing workflow. The project will demonstrate that application. |
+| 1 | Engel, M. M., Gaol, F. L., Kurniawan, A., & Budiharto, W. (2026). *Anonymous Transactional Dataset* (Version 2). Mendeley Data. https://doi.org/10.17632/kcgf45y24m.2 | Real-world dataset | https://data.mendeley.com/datasets/kcgf45y24m/2 | Contains historical sales transactions and product information collected from a real food and beverage business operating multiple outlets in Indonesia. | Provides sales and product information but does not include ingredient inventory, supplier records, purchase orders or wastage information. |
+| 2 | Engel, M. M., Gaol, F. L., Kurniawan, A., & Budiharto, W. (2026). Anonymous transactional dataset in a local food and beverages (F&B) micro-small-medium enterprise (MSME) for recommender systems. *Data in Brief, 65*, 112519. https://doi.org/10.1016/j.dib.2026.112519 | Research/data article | https://doi.org/10.1016/j.dib.2026.112519 | Explains how real business transaction records were collected, cleaned and prepared for research. | Focuses on transactional data and recommendation systems rather than complete cafe inventory and supplier management. |
+| 3 | Ramadhan, A. N., & Simatupang, T. M. (2012). Determining inventory management policy for perishable materials in Roemah Keboen Restaurant. *Procedia - Social and Behavioral Sciences, 65*, 992–999. https://doi.org/10.1016/j.sbspro.2012.11.232 | Research paper | https://doi.org/10.1016/j.sbspro.2012.11.232 | Discusses inventory decisions for perishable restaurant materials and how stock management affects waste and operating costs. | Shows the importance of better stock monitoring and ordering decisions. BeanTrack will connect stock records with sales and reorder information. |
+| 4 | United Nations Environment Programme. (2024). *Food Waste Index Report 2024*. https://wedocs.unep.org/handle/20.500.11822/45230 | International report | https://wedocs.unep.org/handle/20.500.11822/45230 | Highlights the importance of measuring food waste in food service, retail and household sectors to support waste reduction. | Supports the need to record and monitor waste. BeanTrack will include waste records to help identify losses in cafe operations. |
+| 5 | Square. (n.d.). *Capabilities: Square for Restaurants*. https://squareup.com/us/en/restaurants/capabilities | Existing system | https://squareup.com/us/en/restaurants/capabilities | Provides restaurant features such as sales processing, menu management, inventory tracking and order management. | Demonstrates that integrated restaurant management is possible. BeanTrack will provide a student-developed Oracle PL/SQL implementation focused on cafe operations. |
+| 6 | Oracle. (2021). *Oracle Database PL/SQL Language Reference, 21c*. https://docs.oracle.com/en/database/oracle/oracle-database/21/lnpls/ | Technical documentation | https://docs.oracle.com/en/database/oracle/oracle-database/21/lnpls/ | Explains PL/SQL programming, procedures, functions, packages, triggers, collections and bulk processing using BULK COLLECT and FORALL. | Provides the technical foundation, but does not provide a ready-made cafe management application. BeanTrack will apply these features to practical cafe operations. |
 
-## Preliminary research conclusion
+## 2. Data-use and Verification Notes
 
-The reviewed sources show that food-service businesses need reliable sales records, ingredient-level stock control, purchasing visibility and food-waste monitoring. Existing commercial products provide some of these features, while research studies demonstrate the cost and waste problems associated with weak inventory decisions.
+The Mendeley dataset will be used as the primary source of real sales data for BeanTrack.
 
-The selected Mendeley dataset provides a real, anonymous F&B sales dataset with more than the required few hundred records and a CC BY 4.0 licence. However, it does not contain all the operational information required for the complete project. The project will therefore use it for sales and product data and seek permission to collect additional anonymized inventory, recipe, supplier, purchase and waste information from a participating cafe. Any generated records used only for software testing will be labelled as synthetic test data and will not be presented as real business data.
+- Attribute the dataset to its original authors.
+- Retain the Creative Commons Attribution 4.0 International (CC BY 4.0) licence information when using or adapting the data.
+- Preserve the original downloaded CSV files in the `data/raw/` folder.
+- Store any cleaned or modified versions separately.
+- Do not include personal information that identifies real individuals.
 
-## Data-use and verification notes
-
-- Attribute the Mendeley dataset to its authors and retain the CC BY 4.0 licence information when using or adapting it.
-- ### Dataset verification
+### 2.1 Dataset Verification
 
 The Anonymous Transactional Dataset published by Engel, Gaol, Kurniawan and Budiharto (2026) was selected as the primary source of real sales data for BeanTrack. The dataset describes historical transactions collected from a real food and beverage MSME operating three outlets in Indonesia.
 
 The downloaded dataset contains two CSV files:
 
-- `Transactions.csv`: 53,820 transaction records covering 2 January 2025 to 30 September 2025.
-- `Products.csv`: 96 product records containing product names, variants, categories, prices and descriptions.
+- **Transactions.csv:** 53,820 transaction records covering January to September 2025.
+- **Products.csv:** 96 product records containing product names, variants, categories, prices and descriptions.
 
 The files were inspected using Python. Both files contained no missing values or duplicate complete records. The transaction file contained 53,820 unique receipt numbers.
 
-**Research gap:** The dataset provides sales and product information but does not include ingredient stock levels, supplier records, purchase orders, recipes or wastage records. BeanTrack will address these additional operational requirements through its proposed database design and further authorized data collection or clearly labelled test records.
+**Dataset research gap:** The dataset provides sales and product information but does not include ingredient stock levels, supplier records, purchase orders, recipes or wastage records. BeanTrack will address these additional operational requirements through its proposed database design and further authorized data collection or clearly labelled test records.
 
 **Data licence:** Creative Commons Attribution 4.0 International (CC BY 4.0). The dataset must be properly attributed to its authors.
 
+## 3. Overall Research Gap
+
+The reviewed sources show that restaurant and cafe operations involve several connected activities, including sales recording, inventory control, supplier management and food-waste monitoring. Existing systems provide some of these functions, while the selected real-world dataset mainly covers sales transactions and product information.
+
+BeanTrack will address this gap by developing an integrated Oracle database application that connects sales, products, ingredient inventory, suppliers, purchases and waste records. PL/SQL procedures, functions, packages, triggers and bulk processing will support the main business operations.
+
+The proposed system will also include a dashboard to help users monitor sales, stock levels, supplier information and inventory alerts.
